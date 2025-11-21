@@ -7,101 +7,7 @@
 <link rel="stylesheet" href="file:///C:/Users/jackt/OneDrive%20-%20Lincoln%20High%20School/Documents/JDTY/WebPages/mystyle/style.css"
 </head>
 <body>
-
-
-<!-- Radfall Loading Screen -->
-<div id="loading-screen">
-  <div class="loader-background"></div>
-  <div class="loader-content">
-    <h1 class="loader-logo">RADFALL</h1>
-    <p class="loader-tip" id="loaderTip">Prepare to enter the dead zones...</p>
-
-    <!-- Path selection -->
-    <div class="path-grid">
-      <button class="path-card" data-path="survivor" aria-pressed="false">
-        <div class="icon">🛠️</div>
-        <h3>Survivor</h3>
-        <p class="short">Crafting & endurance-focused.</p>
-        <ul class="perks">
-          <li>Better crafting yields</li>
-          <li>Radiation resistance +5%</li>
-          <li>Find more resources</li>
-        </ul>
-      </button>
-
-      <button class="path-card" data-path="scout" aria-pressed="false">
-        <div class="icon">🧭</div>
-        <h3>Scout</h3>
-        <p class="short">Exploration & stealth.</p>
-        <ul class="perks">
-          <li>Faster movement</li>
-          <li>See hidden POIs</li>
-          <li>Lower detection risk</li>
-        </ul>
-      </button>
-
-      <button class="path-card" data-path="hunter" aria-pressed="false">
-        <div class="icon">⚔️</div>
-        <h3>Hunter</h3>
-        <p class="short">Combat-oriented.</p>
-        <ul class="perks">
-          <li>Higher melee damage</li>
-          <li>Better Echoform drops</li>
-          <li>Combat advantage at close range</li>
-        </ul>
-      </button>
-    </div>
-
-    <div class="chosen-display">
-      <p>Selected path: <strong id="chosenPath">None</strong></p>
-      <button id="startGameBtn" class="btn">Enter the Dead Zones</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  const cards = document.querySelectorAll('.path-card');
-  const chosen = document.getElementById('chosenPath');
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      card.setAttribute('aria-pressed', 'true');
-
-      chosen.textContent = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
-    });
-  });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.path-card');
-  const chosen = document.getElementById('chosenPath');
-  const startBtn = document.getElementById('startGameBtn');
-  let selectedPath = null;
-
-  // Path selection
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      card.setAttribute('aria-pressed', 'true');
-      selectedPath = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
-      chosen.textContent = selectedPath;
-    });
-  });
-
-  // Enter button redirect
-  startBtn.addEventListener('click', () => {
-    if(!selectedPath){
-      alert("Choose a path before entering the Dead Zones!");
-      return;
-    }
-    // Go to your website
-    window.location.href = "https://jack15234.github.io/RadfallDiscription/"
-  });
-});
-  <style>
-    /* Choose Your Path Section */
+/* Choose Your Path Section */
 .path-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -266,9 +172,100 @@ document.addEventListener('DOMContentLoaded', () => {
   .path-grid { flex-direction:column; align-items:center; }
   .path-card { width:90%; max-width:260px; }
 }
-</style>
+<!-- Radfall Loading Screen -->
+<div id="loading-screen">
+  <div class="loader-background"></div>
+  <div class="loader-content">
+    <h1 class="loader-logo">RADFALL</h1>
+    <p class="loader-tip" id="loaderTip">Prepare to enter the dead zones...</p>
+
+    <!-- Path selection -->
+    <div class="path-grid">
+      <button class="path-card" data-path="survivor" aria-pressed="false">
+        <div class="icon">🛠️</div>
+        <h3>Survivor</h3>
+        <p class="short">Crafting & endurance-focused.</p>
+        <ul class="perks">
+          <li>Better crafting yields</li>
+          <li>Radiation resistance +5%</li>
+          <li>Find more resources</li>
+        </ul>
+      </button>
+
+      <button class="path-card" data-path="scout" aria-pressed="false">
+        <div class="icon">🧭</div>
+        <h3>Scout</h3>
+        <p class="short">Exploration & stealth.</p>
+        <ul class="perks">
+          <li>Faster movement</li>
+          <li>See hidden POIs</li>
+          <li>Lower detection risk</li>
+        </ul>
+      </button>
+
+      <button class="path-card" data-path="hunter" aria-pressed="false">
+        <div class="icon">⚔️</div>
+        <h3>Hunter</h3>
+        <p class="short">Combat-oriented.</p>
+        <ul class="perks">
+          <li>Higher melee damage</li>
+          <li>Better Echoform drops</li>
+          <li>Combat advantage at close range</li>
+        </ul>
+      </button>
+    </div>
+
+    <div class="chosen-display">
+      <p>Selected path: <strong id="chosenPath">None</strong></p>
+      <button id="startGameBtn" class="btn">Enter the Dead Zones</button>
+    </div>
+  </div>
+</div>
 
 
+
+    
+<script>
+  const cards = document.querySelectorAll('.path-card');
+  const chosen = document.getElementById('chosenPath');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      card.setAttribute('aria-pressed', 'true');
+
+      chosen.textContent = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
+    });
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.path-card');
+  const chosen = document.getElementById('chosenPath');
+  const startBtn = document.getElementById('startGameBtn');
+  let selectedPath = null;
+
+  // Path selection
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      card.setAttribute('aria-pressed', 'true');
+      selectedPath = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
+      chosen.textContent = selectedPath;
+    });
+  });
+
+  // Enter button redirect
+  startBtn.addEventListener('click', () => {
+    if(!selectedPath){
+      alert("Choose a path before entering the Dead Zones!");
+      return;
+    }
+    // Go to your website
+    window.location.href = "https://jack15234.github.io/RadfallDiscription/"
+  });
+});
 </script>
 
 
@@ -278,8 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </body>
 
 </html>
-
-
 
 
 

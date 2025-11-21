@@ -7,7 +7,56 @@
 <link rel="stylesheet" href="file:///C:/Users/jackt/OneDrive%20-%20Lincoln%20High%20School/Documents/JDTY/WebPages/mystyle/style.css"
 </head>
 <body>
-     <style</style>
+    
+<script>
+  const cards = document.querySelectorAll('.path-card');
+  const chosen = document.getElementById('chosenPath');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      card.setAttribute('aria-pressed', 'true');
+
+      chosen.textContent = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
+    });
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cards = document.querySelectorAll('.path-card');
+  const chosen = document.getElementById('chosenPath');
+  const startBtn = document.getElementById('startGameBtn');
+  let selectedPath = null;
+
+  // Path selection
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
+      card.setAttribute('aria-pressed', 'true');
+      selectedPath = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
+      chosen.textContent = selectedPath;
+    });
+  });
+
+  // Enter button redirect
+  startBtn.addEventListener('click', () => {
+    if(!selectedPath){
+      alert("Choose a path before entering the Dead Zones!");
+      return;
+    }
+    // Go to your website
+    window.location.href = "https://jack15234.github.io/RadfallDiscription/"
+  });
+});
+</script>
+
+
+
+
+
+</body>
+  <style>
 /* Choose Your Path Section */
 .path-container {
   max-width: 1100px;
@@ -222,58 +271,8 @@
     </div>
   </div>
 </div>
-
-
-
-    
-<script>
-  const cards = document.querySelectorAll('.path-card');
-  const chosen = document.getElementById('chosenPath');
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      card.setAttribute('aria-pressed', 'true');
-
-      chosen.textContent = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
-    });
-  });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const cards = document.querySelectorAll('.path-card');
-  const chosen = document.getElementById('chosenPath');
-  const startBtn = document.getElementById('startGameBtn');
-  let selectedPath = null;
-
-  // Path selection
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      cards.forEach(c => c.setAttribute('aria-pressed', 'false'));
-      card.setAttribute('aria-pressed', 'true');
-      selectedPath = card.dataset.path.charAt(0).toUpperCase() + card.dataset.path.slice(1);
-      chosen.textContent = selectedPath;
-    });
-  });
-
-  // Enter button redirect
-  startBtn.addEventListener('click', () => {
-    if(!selectedPath){
-      alert("Choose a path before entering the Dead Zones!");
-      return;
-    }
-    // Go to your website
-    window.location.href = "https://jack15234.github.io/RadfallDiscription/"
-  });
-});
-</script>
-
-
-
-
-
-</body>
+       
+<style>
 
 </html>
 
